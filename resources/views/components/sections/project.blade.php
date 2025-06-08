@@ -1,4 +1,4 @@
-<div class=" py-4">
+<section id="js-project" class=" py-4">
     @include('components.header_section', [
         'background' => 'PORTFOLIO',
         'title' => 'Project',
@@ -11,11 +11,11 @@
                 <li class="px-4 pb-1 cursor-pointer" id="js-tab-personal">Personal</li>
             </ul>
             <div>
-                <div class="grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 hidden active-content"
+                <div class="grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 hidden active-content animate-fadeInUp"
                     id="js-content-all">
                     @for ($i = 0; $i < 5; $i++)
                         <div
-                            class="rounded-xl max-w-lg min-h-[300px] max-h-[300px] grid place-items-center overflow-hidden relative group animate-fadeInUp shadow-gray-500 cursor-pointer">
+                            class="rounded-xl max-w-lg min-h-[300px] max-h-[300px] grid place-items-center overflow-hidden relative group shadow-gray-500 cursor-pointer group-[.active-content]:opacity-100 group-[.active-content]:translate-y-0">
                             <img src="{{ asset('images/vit.jpg') }}" alt="img"
                                 class="object-contain w-full h-auto max-h-full group-hover:opacity-98 group-hover:scale-105 group-hover:blur-xs">
                             <div
@@ -38,6 +38,7 @@
                         </div>
                     @endfor
                 </div>
+
 
                 <div class="grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 hidden" id="js-content-client">
                     @for ($i = 0; $i < 3; $i++)
@@ -95,4 +96,4 @@
             </div>
         </div>
     </div>
-</div>
+    </div>

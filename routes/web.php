@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +15,5 @@ Route::post('send-contact-form', [MailController::class, 'sendEmail'])->name('se
 Route::get('/view-mail', function () {
     return view('components.templates.new_message_mail');
 });
+Route::get('/my-cv', [FileController::class, 'viewCV'])->name('viewCV');
+Route::get('/download-cv', [FileController::class, 'downloadCV'])->name('downloadCV');

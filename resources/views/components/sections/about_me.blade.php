@@ -1,4 +1,4 @@
-<div class="h-screen">
+<section class="h-screen" id="js-about-me">
     @include('components.header_section', [
         'background' => 'ABOUT ME',
         'title' => 'Know Me More',
@@ -37,13 +37,17 @@
                     @endforeach
                 </ul>
                 <div class="pt-4 flex gap-4">
-                    <button
-                        class="rounded-3xl px-4 py-2 font-medium bg-[var(--green-color)] text-[var(--light-color)] transition-colors duration-300 ease-in-out shadow-md hover:bg-[var(--green-100-color)] hover:shadow-xl cursor-pointer">View
-                        CV</button>
-                    <button
-                        class="rounded-3xl px-5 py-2 font-medium bg-[var(--green-color)] text-[var(--light-color)] transition-colors duration-300 ease-in-out shadow-md hover:bg-[var(--green-100-color)]  hover:shadow-xl  cursor-pointer">
-                        Download
-                        CV</button>
+                    <a href="{{ route('viewCV') }}" target="_blank" rel="noopener noreferrer">
+                        <button
+                            class="rounded-3xl px-4 py-2 font-medium bg-[var(--green-color)] text-[var(--light-color)] transition-colors duration-300 ease-in-out shadow-md hover:bg-[var(--green-100-color)] hover:shadow-xl cursor-pointer">
+                            View CV</button>
+                    </a>
+                    <a href="{{ route('downloadCV') }}" download>
+                        <button
+                            class="rounded-3xl px-5 py-2 font-medium bg-[var(--green-color)] text-[var(--light-color)] transition-colors duration-300 ease-in-out shadow-md hover:bg-[var(--green-100-color)]  hover:shadow-xl  cursor-pointer">
+                            Download
+                            CV</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -64,4 +68,4 @@
 
         </div>
     </div>
-</div>
+</section>

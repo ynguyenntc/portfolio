@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function (e) {
+    toggleCollapse();
     typingTextHeroContent();
     handleProjectTab();
     handleInput();
     clinkSendMail();
+    activeItemNavbar();
 });
 function typingTextHeroContent() {
     const hero_content = ["Y Nguyen", "a PHP Backend Developer"];
@@ -202,7 +204,6 @@ function handleContactFormErrorMessage(errors) {
 
 function handleInput() {
     document.querySelectorAll("#js-form-contact [name]").forEach((element) => {
-        console.log(element);
         element.addEventListener("input", function () {
             console.log(element);
             element.classList.remove("border-red-500");
@@ -215,4 +216,97 @@ function handleInput() {
             }
         });
     });
+}
+function toggleCollapse() {
+    const root = document.documentElement;
+    const toogle_btn = document.getElementById("toggle-btn");
+    const toogle_icon = document.getElementById("toggle-icon");
+    // const navbar = document.getElementById("navbar");
+    // const main_content = document.getElementById("home-main");
+    const avatar = document.getElementById("avatar");
+    const username = document.getElementById("username");
+    const item_menu_icon = document.querySelectorAll(".js-item-menu__icon");
+    const item_menu_name = document.querySelectorAll(".js-item-menu__name");
+    const social_media = document.getElementById("social-media");
+    toogle_btn.addEventListener("click", function () {
+        if (
+            getComputedStyle(root).getPropertyValue("--navbar-width") ===
+            "16.25rem"
+        ) {
+            root.style.setProperty("--navbar-width", "4rem");
+
+            toogle_btn.classList.add("left-[23px]");
+            toogle_btn.classList.remove("left-[240px]");
+            toogle_btn.classList.add("top-[40px]");
+            toogle_btn.classList.remove("top-[121px]");
+
+            toogle_icon.classList.add("rotate-180");
+
+            avatar.classList.add("hidden");
+            avatar.classList.remove("w-[11rem]", "h-[11rem]");
+
+            username.classList.add("hidden");
+
+            item_menu_icon.forEach((icon) => {
+                icon.classList.add("opacity-100", "visible");
+                icon.classList.remove("opacity-0", "invisible");
+            });
+            item_menu_name.forEach((text) => text.classList.add("hidden"));
+
+            social_media.classList.add("flex-col");
+        } else {
+            root.style.setProperty("--navbar-width", "16.25rem");
+
+            toogle_btn.classList.add("left-[240px]");
+            toogle_btn.classList.remove("left-[23px]");
+            toogle_btn.classList.remove("top-[40px]");
+            toogle_btn.classList.add("top-[121px]");
+
+            toogle_icon.classList.remove("rotate-180");
+
+            avatar.classList.remove("hidden");
+            avatar.classList.add("w-[11rem]", "h-[11rem]");
+
+            username.classList.remove("hidden");
+
+            item_menu_icon.forEach((icon) => {
+                icon.classList.add("opacity-0", "invisible");
+                icon.classList.remove("opacity-100", "visible");
+            });
+
+            item_menu_name.forEach((text) => text.classList.remove("hidden"));
+
+            social_media.classList.remove("flex-col");
+        }
+    });
+}
+
+function activeItemNavbar() {
+    const navbar_items = document.querySelectorAll("#menu a");
+    const sections = document.querySelectorAll("#home-main section");
+
+    window.addEventListener("scroll", function () {
+        onScroll();
+    });
+
+    function onScroll() {
+        let current_section = "";
+        sections.forEach(function (section) {
+            const section_top = section.offsetTop;
+            const section_height = section.offsetHeight;
+            const scroll_position = window.scrollY;
+            if (
+                scroll_position >= section_top - section_height / 3 &&
+                scroll_position < section_top + section_height
+            ) {
+                current_section = section.getAttribute("id");
+            }
+        });
+        navbar_items.forEach((item) => {
+            item.classList.remove("active-nav");
+            if (item.getAttribute("href").slice(1) === current_section) {
+                item.classList.add("active-nav");
+            }
+        });
+    }
 }

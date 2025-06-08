@@ -27,7 +27,7 @@
     --gray-100-color: #6c757d;
     --gray-50-color: #ced7df51;
     --gray-bg-color: #f2f3f4fe;
-    --navbar-width: 260px;
+    --navbar-width: 16.25rem;
     --font-text: "Poppins", serif;
 }
 
@@ -37,6 +37,10 @@ body {
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 
@@ -92,7 +96,7 @@ body {
     }
 
     .animate-fadeInUp {
-        animation: faseInUp 0.6s ease-out forwards;
+        animation: fadeInUp 0.6s ease-out forwards;
     }
 }
 
@@ -103,4 +107,8 @@ body {
 
 .active-content {
     display: grid;
+}
+
+.active-nav {
+    color: var(--green-color);
 }

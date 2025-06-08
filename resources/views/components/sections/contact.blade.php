@@ -1,4 +1,4 @@
-<div class="bg-[var(--gray-bg-color)] py-4">
+<section id="js-contact" class="bg-[var(--gray-bg-color)] py-4">
     @include('components.header_section', [
         'background' => 'CONTACT',
         'title' => 'Get In Touch',
@@ -28,21 +28,21 @@
                 </ul>
             </div>
             <div>
-                <h3 class="text-[20px] font-medium pb-4">SEND ME A MESSAGE</h3>
+                <h3 class="text-[20px] font-medium">SEND ME A MESSAGE</h3>
                 <form id="js-form-contact">
                     <div class="flex flex-col">
                         <div class="w-full grid grid-cols-2 gap-4">
                             <div>
                                 <label class="font-medium relative top-3 left-4 bg-[var(--gray-bg-color)] px-0.5">Name
                                     <span class="text-red-500">*</span></label>
-                                <input name="name" type="text" placeholder="Name"
+                                <input name="name" type="text" placeholder="Your name"
                                     class="w-full bg-white border rounded-[8px] border-solid border-[#ced4da] px-4 py-3 outline-0 focus:border-[var(--green-color)]  focus:shadow placeholder:text-[#cfd4d8]">
                             </div>
                             <div>
                                 <label
                                     class="font-medium relative top-3 left-4 bg-[var(--gray-bg-color)] px-0.5 ">Email<span
                                         class="text-red-500">*</span></label>
-                                <input name="email" type="text" placeholder="Email"
+                                <input name="email" type="text" placeholder="Your e-mail"
                                     class="w-full bg-white border rounded-[8px] border-solid border-[#ced4da] px-4 py-3 outline-0 focus:border-[var(--green-color)]  focus:shadow placeholder:text-[#cfd4d8]">
                             </div>
                         </div>
@@ -75,4 +75,4 @@
         </div>
 
     </div>
-</div>
+</section>
